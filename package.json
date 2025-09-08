@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky",
+    "prepare": "husky && prisma generate",
     "seed": "tsx prisma/seed.ts"
   },
   "prisma": {
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.17.0",
+    "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

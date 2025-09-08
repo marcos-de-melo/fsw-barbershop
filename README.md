@@ -4,7 +4,7 @@
 - [x] Seeding do banco (colocar dados)
 - [x] Introdução ao Next.ts
 - [x] Tailwind e Shadcn
-- [] Git Hooks
+- [x] Git Hooks
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
