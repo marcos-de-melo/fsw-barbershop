@@ -1,13 +1,12 @@
-import { SearchIcon } from "lucide-react"
 import Image from "next/image"
 import Header from "./_components/header"
 import { Button } from "./_components/ui/button"
-import { Input } from "./_components/ui/input"
 import { db } from "./_lib/prisma"
 import BarbershopItem from "./_components/barbershop-item"
 
 import { quickSearchOptions } from "./_constants/search"
 import BookingItem from "./_components/booking-item"
+import Search from "./_components/search"
 
 const Home = async () => {
   // chamar os barbearias do banco
@@ -27,11 +26,8 @@ const Home = async () => {
         <p>Segunda-feira, 05 de agosto.</p>
 
         {/* BUSCA */}
-        <div className="mt-6 flex items-center gap-2">
-          <Input placeholder="Faça sua Busca..." />
-          <Button>
-            <SearchIcon />
-          </Button>
+        <div className="mt-6">
+          <Search />
         </div>
         {/* BUSCA RÁPIDA */}
         <div className="mt-6 flex gap-3 overflow-auto [&::-webkit-scrollbar]:hidden">
