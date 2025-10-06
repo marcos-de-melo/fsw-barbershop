@@ -1,4 +1,5 @@
 "use client"
+
 import { SearchIcon } from "lucide-react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
@@ -14,6 +15,7 @@ const formSchema = z.object({
     message: "Digite algo para buscar",
   }),
 })
+
 const Search = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -21,11 +23,12 @@ const Search = () => {
       title: "",
     },
   })
-
   const router = useRouter()
+
   const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    router.push(`/barbershops?search=${data.title}`)
+    router.push(`/barbershops?title=${data.title}`)
   }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="flex gap-2">
@@ -36,12 +39,11 @@ const Search = () => {
             <FormItem className="w-full">
               <FormControl>
                 <Input
-                  placeholder="Faça sua busca"
+                  placeholder="Faça sua busca..."
                   {...field}
                   className="w-full"
                 />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
