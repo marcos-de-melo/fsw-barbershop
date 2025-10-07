@@ -5,10 +5,11 @@ import { db } from "../_lib/prisma"
 
 interface BarbershopsPageProps {
   searchParams: {
-    title: string
-    service: string
+    title?: string
+    service?: string
   }
 }
+
 const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
   const barbershops = await db.barbershop.findMany({
     where: {
@@ -21,12 +22,12 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
               },
             }
           : {},
-        searchParams?.service
+        searchParams.service
           ? {
               services: {
                 some: {
                   name: {
-                    contains: searchParams?.service,
+                    contains: searchParams.service,
                     mode: "insensitive",
                   },
                 },
@@ -36,6 +37,7 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
       ],
     },
   })
+
   return (
     <div>
       <Header />

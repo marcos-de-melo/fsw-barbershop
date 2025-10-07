@@ -210,7 +210,8 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                       locale={ptBR}
                       selected={selectedDay}
                       onSelect={handleDateSelect}
-                      fromDate={new Date()}
+                      // fromDate={new Date()}
+                      disabled={{ before: new Date() }}
                       styles={{
                         head_cell: {
                           width: "100%",
